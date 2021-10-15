@@ -3,10 +3,14 @@ float velocity = 0.01;
 float size = 28;
 boolean showText = false;
 boolean showFPS = false;
+import processing.sound.*;
+SoundFile blop;
+
 
 void setup()
 {
   size(1400, 800, P3D);
+  blop  = new SoundFile(this, "blop.wav");
 }
 
 void draw()
@@ -35,6 +39,8 @@ void draw()
     text("Press ' 5 '  -  increase cube size", 30, 540);
     text("Press ' 6 '  -  decrease cube size", 30, 570);
     text("Press ' f '  -  display FPS counter", 30, 630);
+    text("For the colours to work",30,690);
+    text("make sure you unhide the help message", 30, 710);
   }
 
   if (showFPS)
@@ -71,44 +77,60 @@ void keyPressed()
   if ((key == 'r' || key == 'R')) // red
   {
     fill(255, 0, 0);
+    blop.play();
   } else if ((key == 'g' || key == 'G')) // green
   {
     fill(0, 255, 0);
+    blop.play();
   } else if ((key == 'b' || key == 'B')) // blue
   {
     fill(0, 0, 255);
+    blop.play();
   } else if ((key == 'y' || key == 'Y')) // yellow
   {
     fill(#FFF300);
+    blop.play();
   } else if ((key == 'p' || key == 'P')) // pink
   {
     fill(#FF00EF);
+    blop.play();
   } else if ((key == '?')) // random colour generator
   {
     fill(random(0, 255), random(0, 255), random(0, 255));
+    blop.play();
   } else if ((key == '1')) // velocity increase
   {
     velocity = velocity+0.002;
+    blop.play();
   } else if ((key == '2')) // velocity decrease
   {
     velocity = velocity-0.002;
+    blop.play();
   } else if ((key == '3')) // block size increase
   {
     size = size+2;
+    blop.play();
   } else if ((key == '4')) // block size decrease
   {
     size = size-2;
+    blop.play();
   } else if ((key == '5')) // increase cube size
   {
     blocks = blocks+20;
+    blop.play();
   } else if ((key == '6')) // decrease cube size
   {
     blocks = blocks-20;
+    blop.play();
   } else if ((key == 'h' || key == 'H')) // display help message
   {
     showText = !showText;
+    blop.play();
   } else if ((key == 'f' || key == 'F')) // display fps counter
   {
     showFPS = !showFPS;
+    blop.play();
   }
 }
+
+// For the colours to work, make sure you unhide the help message

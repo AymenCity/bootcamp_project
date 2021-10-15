@@ -1,6 +1,6 @@
 int blocks=280;
 float velocity = 0.01;
-float size = 30;
+float size = 28;
 boolean showText = false;
 boolean showFPS = false;
 
